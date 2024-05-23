@@ -1,15 +1,10 @@
-import { ChangeEvent } from "react";
+import NavBar from "./NavBar";
 
 export default function App() {
-  const handlechange = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-  };
-
   return (
     <>
-      <h1 onChange={handlechange} className="text-2xl font-bold underline">
-        Hello world!
-      </h1>
+      <NavBar />
+      <div className=" mt-32 h-screen"></div>
     </>
   );
 }
