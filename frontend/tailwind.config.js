@@ -16,10 +16,13 @@ export default {
         purpclick: "rgba(130,44,242, .3)",
       },
       fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
+        DMSans: ["DM Sans", "sans-serif"],
       },
       spacing: {
         thirtyp: "30%",
+        seventyp: "70%",
+        sixtytwop: "62%",
+        thirtysixp: "36%",
       },
       screens: {
         xs: "1px",

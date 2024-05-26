@@ -14,7 +14,7 @@ export default function NavBar() {
 
   return (
     <>
-      <div className="fixed top-0 h-28 w-full bg-darkbg font-roboto text-2xl">
+      <div className="font-DMSans fixed top-0 h-28 w-full bg-darkbg text-2xl">
         <div className="justify-left flex h-3/5 items-center ">
           <div className="flex w-2/12 min-w-fit  items-center justify-center  sm:hidden">
             <button
@@ -32,15 +32,15 @@ export default function NavBar() {
             
             ${isMobileMenuOpen ? "-left-0" : "-left-1/2"}`}
           >
-            <button className="flex h-20 w-full items-center justify-center text-sm font-normal text-lessgreyish transition hover:cursor-pointer hover:text-lessgreyish">
+            <button className="flex h-20 w-full items-center justify-center text-sm font-medium text-lessgreyish transition hover:cursor-pointer hover:text-lessgreyish">
               Shop
             </button>
             <div className=" h-0.5 w-full  bg-zinc-800"></div>
-            <button className="flex h-20 w-full items-center justify-center text-sm font-normal text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+            <button className="flex h-20 w-full items-center justify-center text-sm font-medium text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
               My Orders
             </button>
             <div className="  h-0.5 w-full bg-zinc-800"></div>
-            <button className="flex h-20 w-full items-center justify-center text-sm font-normal text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+            <button className="flex h-20 w-full items-center justify-center text-sm font-medium text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
               Support
             </button>
             <button
@@ -62,7 +62,7 @@ export default function NavBar() {
               </p>
             </div>
 
-            <div className=" h-10 w-0.5 bg-line xs:hidden"></div>
+            <div className=" h-10 w-0.5 bg-line xs:hidden sm:inline-block"></div>
             <a className="  text-xs font-normal text-lessgreyish transition hover:cursor-pointer hover:text-lessgreyish xs:hidden sm:inline-block ">
               Shop
             </a>
