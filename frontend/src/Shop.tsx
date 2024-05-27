@@ -1,9 +1,11 @@
+import Computershowcase from "./assets/computer.png";
+
 export default function Shop() {
   return (
     <>
-      <div className="font-DMSans mt-28 flex h-screen flex-col items-center ">
-        <div className="w-seventyp h-sixtytwop mt-14 flex gap-12 border-2 border-blue-500 xs:flex-col md:flex-row">
-          <div className="h-sixtytwop mt-16 flex w-1/2 flex-col border-2 border-red-500">
+      <div className="font-DMSans mt-28 flex min-h-screen flex-col items-center ">
+        <div className="w-seventyp min-h-sixtytwop flex  gap-0 border-2 border-blue-500 xs:flex-col md:mt-14 md:flex-row md:gap-12">
+          <div className="min-h-sixtytwop mt-1 h-fit w-full flex-col border-2 border-red-500 md:mt-16 md:w-2/5">
             <h1 className="inline-block text-5xl font-normal text-gray-100 ">
               Best study tool.
             </h1>
@@ -12,18 +14,28 @@ export default function Shop() {
               Check out the brand new lenova 500, one of the best laptops on the
               market right now.
             </h2>
-            <div className="mt-10 flex gap-5">
-              <button className=" flex items-center justify-center rounded-full bg-purp text-xs text-lessgreyish transition hover:bg-purphover active:bg-purpclick xs:h-8 xs:w-16  md:h-9 md:w-36 ">
+            <div className="mt-10 hidden gap-5 md:flex">
+              <button className=" flex h-9 w-36 items-center justify-center rounded-full bg-purp text-xs text-lessgreyish transition hover:bg-purphover active:bg-purpclick ">
                 Buy now for $560
               </button>
-              <button className=" flex items-center justify-center rounded-full border-2 border-line text-xs text-lessgreyish transition hover:bg-purphover active:bg-purpclick xs:h-8 xs:w-16  md:h-9 md:w-28">
+              <button className=" flex h-9 w-28 items-center justify-center rounded-full border-2 border-line text-xs text-lessgreyish transition hover:bg-greyhover active:bg-greyclick">
                 Learn more
               </button>
             </div>
           </div>
-          <div className="w-thirtysixp mt-1 h-3/4  border-2 border-green-500"></div>
+          <div className=" mt-2 flex aspect-square max-h-96 max-w-96 items-center justify-center border-2  border-green-500 md:mt-10">
+            <img src={Computershowcase}></img>
+          </div>
+          <div className=" mt-4 flex gap-5  md:hidden">
+            <button className=" flex h-9 w-36 items-center justify-center rounded-full bg-purp text-xs text-lessgreyish transition hover:bg-purphover active:bg-purpclick ">
+              Buy now for $560
+            </button>
+            <button className=" flex h-9 w-28 items-center justify-center rounded-full border-2 border-line text-xs text-lessgreyish transition hover:bg-greyhover active:bg-greyclick">
+              Learn more
+            </button>
+          </div>
         </div>
-        <div className=" w-seventyp h-0.5 bg-line"></div>
+        <div className=" w-seventyp mt-6 h-0.5 bg-line"></div>
       </div>
     </>
   );
