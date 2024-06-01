@@ -14,7 +14,7 @@ export default function NavBar() {
 
   return (
     <>
-      <div className="font-DMSans fixed top-0 h-28 w-full bg-darkbg text-2xl">
+      <div className="fixed top-0 h-28 w-full bg-darkbg font-DMSans text-2xl">
         <div className="justify-left flex h-3/5 items-center ">
           <div className="flex w-2/12 min-w-fit  items-center justify-center  sm:hidden">
             <button
@@ -24,8 +24,8 @@ export default function NavBar() {
               <img src={HamburgerIcon} className=" h-4  w-4 "></img>
             </button>
           </div>
-          {/*mobile menu*/}
 
+          {/*mobile menu*/}
           <div
             id="mobile-menu"
             className={`fixed top-0 flex h-1/3 w-1/2 flex-col  items-center justify-start rounded-lg border-2  border-line  bg-darkbglighter transition-all duration-500 ease-in-out

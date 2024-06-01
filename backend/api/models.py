@@ -3,8 +3,8 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class TimestampModel(models.Model):
-  created_at = models.DateTimeField(auto_now_add=True)
-  updated_at = models.DateTimeField(auto_now=True)
+  created = models.DateTimeField(auto_now_add=True)
+  updated = models.DateTimeField(auto_now=True)
   
   class Meta:
     abstract = True
