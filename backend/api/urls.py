@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from rest_framework_simplejwt.views import TokenRefreshView
+#from rest_framework_simplejwt.views import TokenRefreshView
 
 
 
@@ -9,6 +9,8 @@ urlpatterns = [
   path('products/<int:pk>/', views.ProductDetail.as_view(), name = 'product-detail'),
   path('productCategories/', views.ProductCategoryList.as_view(), name='product-category-list'),
   path('productCategory/<int:pk>/', views.ProductCategoryDetail.as_view(), name = 'product-category'),
+  path('productFeaturedCategories/', views.ProductFeaturedList.as_view(), name='product-Featured-list'),
+  path('productFeatured/<int:pk>/', views.ProductFeaturedDetail.as_view(), name = 'product-Featured'),
   
   
 ]

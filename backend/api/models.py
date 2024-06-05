@@ -11,15 +11,19 @@ class TimestampModel(models.Model):
 
 
 class CustomUser(AbstractUser):
-   preferences = models.CharField(max_length=255, blank=True)
+   preferences = models.CharField(max_length=255, blank=True, null=True)
    
    
 class ProductCategory(TimestampModel):
   category_name = models.CharField(max_length=180)
   def __str__(self):
     return self.category_name
-  
-  
+
+class ProductFeatured(TimestampModel):
+  category_name = models.CharField(max_length=180, null=True)
+  def __str__(self):
+    return self.category_name
+
 class Product(TimestampModel):
     name = models.CharField(max_length=255)
     price = models.FloatField()
@@ -29,7 +33,9 @@ class Product(TimestampModel):
     coverphoto = models.ImageField(upload_to='product_images/')
     
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
-  
+    featured = models.ForeignKey(ProductFeatured, on_delete=models.CASCADE)
     def __str__(self):
       return self.name
+
+
     

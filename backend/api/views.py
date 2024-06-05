@@ -1,5 +1,6 @@
-from .models import Product, ProductCategory
-from.serializers import ProductSerializer, ProductCategorySerializer
+from .models import Product, ProductCategory, ProductFeatured
+from.serializers import ProductSerializer, ProductCategorySerializer, ProductFeaturedSerializer
+
 #
 #from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -35,3 +36,16 @@ class ProductCategoryDetail(generics.RetrieveDestroyAPIView):
   queryset = ProductCategory.objects.all()
   serializer_class = ProductCategorySerializer
   permission_classes = [AllowAny]
+  
+class ProductFeaturedList(generics.ListCreateAPIView):
+  queryset = ProductFeatured.objects.all()
+  serializer_class = ProductFeaturedSerializer
+  permission_classes = [AllowAny]
+
+class ProductFeaturedDetail(generics.RetrieveDestroyAPIView):
+  queryset = ProductFeatured.objects.all()
+  serializer_class = ProductFeaturedSerializer
+  permission_classes = [AllowAny]
+
+  
+  
