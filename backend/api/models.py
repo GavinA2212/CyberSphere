@@ -11,7 +11,7 @@ class TimestampModel(models.Model):
 
 
 class CustomUser(AbstractUser):
-   preferences = models.CharField(max_length=255, blank=True, null=True)
+  preferences = models.CharField(max_length=255, blank=True, null=True)
    
    
 class ProductCategory(TimestampModel):
@@ -25,17 +25,18 @@ class ProductFeatured(TimestampModel):
     return self.category_name
 
 class Product(TimestampModel):
-    name = models.CharField(max_length=255)
-    price = models.FloatField()
-    stock = models.IntegerField(default=0)
-    description = models.TextField(null=True, blank=True,)
-    discountprice = models.IntegerField(default=price, null=True, blank = True)
-    coverphoto = models.ImageField(upload_to='product_images/')
-    
-    category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
-    featured = models.ForeignKey(ProductFeatured, on_delete=models.CASCADE)
-    def __str__(self):
-      return self.name
+  name = models.CharField(max_length=255)
+  price = models.FloatField()
+  stock = models.IntegerField(default=0)
+  description = models.TextField(null=True, blank=True,)
+  discountprice = models.IntegerField(default=price, null=True, blank = True)
+  coverphoto = models.ImageField(upload_to='product_images/')
+  featuredphoto = models.ImageField(upload_to='product_images/featured', null=True, blank=True)
+  
+  category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+  featured = models.ForeignKey(ProductFeatured, on_delete=models.CASCADE)
+  def __str__(self):
+    return self.name
 
 
-    
+  
