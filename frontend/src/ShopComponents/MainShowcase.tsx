@@ -9,7 +9,7 @@ export default function MainShowcase() {
             Best study tool.
           </h1>
           <h1 className="text-5xl font-normal text-gray-100 ">Undeniably.</h1>
-          <h2 className=" mt-4 text-base font-normal text-greyish">
+          <h2 className=" mt-4 text-sm font-normal text-greyish">
             Check out the brand new lenova 500, one of the best laptops on the
             market right now.
           </h2>
@@ -25,7 +25,7 @@ export default function MainShowcase() {
         <div className=" flex max-h-96 items-center justify-center  border-green-500  ">
           <img
             src={Computershowcase}
-            className="max-h-96 pb-12 pl-8 pt-4"
+            className="pb-18 max-h-96 pt-4 lg:pl-20"
           ></img>
         </div>
         <div className=" mt-6 flex gap-5  md:hidden">
@@ -37,7 +37,7 @@ export default function MainShowcase() {
           </button>
         </div>
       </div>
-      <div className=" mt-6 h-0.5 w-seventyp bg-line"></div>
+      <div className=" mt-14 h-0.5 w-seventyp bg-line"></div>
     </>
   );
 }

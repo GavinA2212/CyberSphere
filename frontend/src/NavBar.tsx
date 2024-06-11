@@ -32,15 +32,15 @@ export default function NavBar() {
             
             ${isMobileMenuOpen ? "-left-0" : "-left-1/2"}`}
           >
-            <button className="flex h-20 w-full items-center justify-center text-sm font-medium text-lessgreyish transition hover:cursor-pointer hover:text-lessgreyish">
+            <button className="flex h-20 w-full items-center justify-center text-sm font-semibold text-lessgreyish transition hover:cursor-pointer hover:text-lessgreyish">
               Shop
             </button>
             <div className=" h-0.5 w-full  bg-zinc-800"></div>
-            <button className="flex h-20 w-full items-center justify-center text-sm font-medium text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+            <button className="flex h-20 w-full items-center justify-center text-sm font-semibold text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
               My Orders
             </button>
             <div className="  h-0.5 w-full bg-zinc-800"></div>
-            <button className="flex h-20 w-full items-center justify-center text-sm font-medium text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+            <button className="flex h-20 w-full items-center justify-center text-sm font-semibold text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
               Support
             </button>
             <button

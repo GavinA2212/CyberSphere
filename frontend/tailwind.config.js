@@ -23,6 +23,7 @@ export default {
         seventyp: "70%",
         sixtytwop: "62%",
         thirtysixp: "36%",
+        featuresize: "26rem",
       },
       screens: {
         xs: "1px",
