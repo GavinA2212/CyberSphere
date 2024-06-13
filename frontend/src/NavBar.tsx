@@ -4,9 +4,43 @@ import SearchIcon from "./assets/search-icon.png";
 import HamburgerIcon from "./assets/hamburger-icon.png";
 import xicon from "./assets/xicon.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const [currNav, setCurrNav] = useState("shop");
+  const [currShopCategory, setCurrShopCategory] = useState("");
+
+  const handleChangeToShop = () => {
+    setCurrNav("shop");
+  };
+
+  const handleShopClick = () => {
+    handleChangeToShop();
+  };
+  const handleMyOrdersClick = () => {
+    setCurrNav("my orders");
+  };
+  const handleSupportClick = () => {
+    setCurrNav("support");
+  };
+
+  const handleComputersClick = () => {
+    setCurrShopCategory("computers");
+  };
+  const handleStreamingClick = () => {
+    setCurrShopCategory("streaming");
+  };
+  const handleComponentsClick = () => {
+    setCurrShopCategory("components");
+  };
+  const handleAudioClick = () => {
+    setCurrShopCategory("audio");
+  };
+  const handleAccesoriesClick = () => {
+    setCurrShopCategory("accesories");
+  };
 
   const handleMobileMenuClick = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -32,17 +66,29 @@ export default function NavBar() {
             
             ${isMobileMenuOpen ? "-left-0" : "-left-1/2"}`}
           >
-            <button className="flex h-20 w-full items-center justify-center text-sm font-semibold text-lessgreyish transition hover:cursor-pointer hover:text-lessgreyish">
+            <Link
+              to={`/shop/`}
+              onClick={handleMobileMenuClick}
+              className="flex h-20 w-full items-center justify-center text-sm font-semibold text-lessgreyish transition hover:cursor-pointer hover:text-lessgreyish"
+            >
               Shop
-            </button>
+            </Link>
             <div className=" h-0.5 w-full  bg-zinc-800"></div>
-            <button className="flex h-20 w-full items-center justify-center text-sm font-semibold text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+            <Link
+              to={"/myorders/"}
+              onClick={handleMobileMenuClick}
+              className="flex h-20 w-full items-center justify-center text-sm font-semibold text-greyish transition hover:cursor-pointer hover:text-lessgreyish"
+            >
               My Orders
-            </button>
+            </Link>
             <div className="  h-0.5 w-full bg-zinc-800"></div>
-            <button className="flex h-20 w-full items-center justify-center text-sm font-semibold text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+            <Link
+              to={`/support/`}
+              onClick={handleMobileMenuClick}
+              className="flex h-20 w-full items-center justify-center text-sm font-semibold text-greyish transition hover:cursor-pointer hover:text-lessgreyish"
+            >
               Support
-            </button>
+            </Link>
             <button
               onClick={handleMobileMenuClick}
               className=" absolute right-2 top-2 flex size-6  items-center justify-center  "
@@ -52,38 +98,51 @@ export default function NavBar() {
           </div>
 
           <div className=" flex min-w-fit items-center justify-end  xs:w-3/12 xs:gap-1  sm:w-5/12 sm:gap-4 md:gap-9 ">
-            <div className="flex min-w-fit items-center ">
+            <Link className="flex min-w-fit items-center " to="/shop/">
               <img
                 src={CyberSphereLogo}
                 className="h-10 w-10 xs:ml-2 xs:h-8 xs:w-8 sm:ml-0 md:h-10 md:w-10"
               ></img>
-              <p className="font-normal text-gray-100 hover:cursor-pointer xs:text-base md:text-xl">
+              <p className="font-semibold text-gray-100 hover:cursor-pointer xs:text-base md:text-xl">
                 CyberSphere
               </p>
-            </div>
+            </Link>
 
             <div className=" h-10 w-0.5 bg-line xs:hidden sm:inline-block"></div>
-            <a className="  text-xs font-normal text-lessgreyish transition hover:cursor-pointer hover:text-lessgreyish xs:hidden sm:inline-block ">
+            <Link
+              onClick={handleShopClick}
+              className={`${currNav === "shop" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} min-w-fit text-xs font-normal  transition hover:cursor-pointer  xs:hidden sm:inline-block`}
+              to={`/shop/`}
+            >
               Shop
-            </a>
-            <a className=" min-w-fit text-xs font-normal text-greyish transition  hover:cursor-pointer hover:text-lessgreyish xs:hidden sm:inline-block">
+            </Link>
+            <Link
+              onClick={handleMyOrdersClick}
+              className={`${currNav === "my orders" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} min-w-fit text-xs font-normal  transition hover:cursor-pointer  xs:hidden sm:inline-block`}
+              to={`/myorders/`}
+            >
               My Orders
-            </a>
-            <a className=" text-xs font-normal text-greyish transition hover:cursor-pointer hover:text-lessgreyish xs:hidden sm:inline-block">
+            </Link>
+            <Link
+              onClick={handleSupportClick}
+              className={`${currNav === "support" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} min-w-fit text-xs font-normal  transition hover:cursor-pointer  xs:hidden sm:inline-block`}
+              to={`/support/`}
+            >
               Support
-            </a>
+            </Link>
           </div>
           <div className=" ml-4 flex w-thirtyp min-w-fit items-center justify-end ">
             <div
-              className="xs: flex max-w-80 flex-1  items-center justify-start rounded-lg border-2 border-line
+              className="flex max-w-80 flex-1  items-center justify-start rounded-lg border-2 border-line
              bg-darkbg pl-1 text-greyish focus:shadow-none focus:outline-none xs:h-9 xs:text-xs sm:h-11 sm:pl-4 sm:text-sm"
             >
               <input
+                id="largescreensearch"
                 type="search"
-                placeholder="Search"
+                placeholder="Search for everything"
                 size={4}
-                className="size h-full w-auto flex-1 border-none bg-darkbg text-sm text-greyish focus:shadow-none 
-              focus:outline-none xs:pl-0  md:pl-2"
+                className="size h-full w-auto flex-1 border-none bg-darkbg text-xs text-greyish focus:bg-transparent focus:outline-none
+              focus:placeholder:text-transparent xs:pl-0  md:pl-1"
               ></input>
               <button className=" mr-2.5 flex h-7 w-7 items-center  justify-center rounded-full  transition hover:bg-greyhover active:bg-greyclick ">
                 <img src={SearchIcon} className="h-3  w-3 "></img>
@@ -94,9 +153,12 @@ export default function NavBar() {
             <button className="flex h-9  w-9 items-center  justify-center rounded-full  transition hover:bg-greyhover active:bg-greyclick">
               <img src={CartIcon} className="h-6  w-6 "></img>
             </button>
-            <button className="flex items-center justify-center rounded-full bg-purp text-xs text-lessgreyish transition hover:bg-purphover active:bg-purpclick xs:h-8 xs:w-16 md:mr-4 md:h-10 md:w-20 lg:mr-0">
+            <Link
+              to={`/Login/`}
+              className="flex items-center justify-center rounded-full bg-purp text-xs tracking-wide text-lessgreyish transition hover:bg-purphover active:bg-purpclick xs:h-8 xs:w-16 md:mr-4 md:h-10 md:w-20 lg:mr-0"
+            >
               Sign In
-            </button>
+            </Link>
           </div>
         </div>
         <div className="  -mb-0.5 h-0.5 bg-line"></div>

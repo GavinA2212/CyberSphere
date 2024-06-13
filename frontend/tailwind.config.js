@@ -18,12 +18,17 @@ export default {
       fontFamily: {
         DMSans: ["DM Sans", "sans-serif"],
       },
+      fontSize: {
+        xl05: ["1.37rem", "1.87rem"],
+      },
       spacing: {
         thirtyp: "30%",
         seventyp: "70%",
         sixtytwop: "62%",
         thirtysixp: "36%",
         featuresize: "26rem",
+        smfeaturesize: "22rem",
+        navoffset: "10.5rem",
       },
       screens: {
         xs: "1px",
