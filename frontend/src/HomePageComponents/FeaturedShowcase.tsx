@@ -5,40 +5,26 @@ export default function FeaturedShowcase() {
 
   const [products, setProducts] = useState([]);
 
-  const [keyboardsStatus, setKeyboardsStatus] = useState(true);
-  const [CamerasStatus, setCamerasStatus] = useState(false);
-  const [MousesStatus, setMousesStatus] = useState(false);
-  const [HeadphonesStatus, setHeadphonesStatus] = useState(false);
+  const [featuredButtonStatus, setFeaturedButtonStatus] = useState("keyboards");
 
   const handleKeyboardsClick = () => {
-    setKeyboardsStatus(true);
-    setCamerasStatus(false);
-    setMousesStatus(false);
-    setHeadphonesStatus(false);
+    setFeaturedButtonStatus("keyboards");
   };
   const handleCamerasClick = () => {
-    setKeyboardsStatus(false);
-    setCamerasStatus(true);
-    setMousesStatus(false);
-    setHeadphonesStatus(false);
+    setFeaturedButtonStatus("cameras");
   };
   const handleMousesClick = () => {
-    setKeyboardsStatus(false);
-    setCamerasStatus(false);
-    setMousesStatus(true);
-    setHeadphonesStatus(false);
+    setFeaturedButtonStatus("mouses");
   };
   const handleHeadphonesClick = () => {
-    setKeyboardsStatus(false);
-    setCamerasStatus(false);
-    setMousesStatus(false);
-    setHeadphonesStatus(true);
+    setFeaturedButtonStatus("headphones");
   };
 
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(`${APIURL}/api/products/`);
       const jsonData = await response.json();
+      console.log(jsonData);
       setProducts(jsonData);
     };
     fetchProducts();
@@ -51,23 +37,39 @@ export default function FeaturedShowcase() {
       <div className="mt-16 flex min-h-sixtytwop w-seventyp  flex-1  gap-0 border-blue-500 xs:flex-col md:flex-row md:gap-7">
         <div
           id="featuredcontainer"
-          className="md:max-w-featuresize max-w-smfeaturesize flex flex-1 flex-col"
+          className="flex max-w-smfeaturesize flex-1 flex-col md:max-w-featuresize"
         >
-          <div className=" md:max-w-featuresize md:max-h-featuresize max-h-smfeaturesize max-w-smfeaturesize flex aspect-square  flex-1 items-center justify-center rounded-xl bg-line md:min-w-72">
-            {products[0] ? (
-              <img
-                src={(products[0] as { featuredphoto: string }).featuredphoto}
-                className="size-fit rounded-xl"
-              />
-            ) : (
-              <div className=" md:max-w-featuresize md:max-h-featuresize max-h-smfeaturesize max-w-smfeaturesize  aspect-square flex-1  rounded-xl bg-line"></div>
-            )}
-          </div>
+          {products[0] ? (
+            <img
+              src={(products[0] as { featuredphoto: string }).featuredphoto}
+              className="size-fit rounded-xl"
+            />
+          ) : (
+            <div className=" aspect-square max-h-smfeaturesize max-w-smfeaturesize flex-1  rounded-xl bg-line  md:max-h-featuresize md:max-w-featuresize"></div>
+          )}
           <div
             id="bottomdetails"
-            className="md:max-w-featuresize max-w-smfeaturesize border-bg-green-500 flex flex-1"
+            className="border-bg-green-500 flex h-16 max-w-smfeaturesize  border-2 md:max-w-featuresize"
           >
-            <p className="text wrap"></p>
+            <div className="flex flex-col">
+              <p className="mt-3 text-xl05 font-semibold tracking-wide text-gray-100 drop-shadow-sm ">
+                {products[0] ? (
+                  (products[0] as { name: string }).name
+                ) : (
+                  <div className="mt-1.5 h-5 w-64 rounded-sm bg-line"></div>
+                )}
+              </p>
+              <p className=" text-sm font-normal text-greyish">
+                {products[0] ? (
+                  <>
+                    Designed by{" "}
+                    {(products[0] as { created_by: string }).created_by}
+                  </>
+                ) : (
+                  <div className="mt-1 h-3 w-32 rounded-sm bg-line"></div>
+                )}
+              </p>
+            </div>
           </div>
         </div>
         <div className="mt-3 flex flex-1 flex-col border-red-500 md:mt-0">
@@ -82,31 +84,32 @@ export default function FeaturedShowcase() {
             className="flex:1 mt-3 grid grid-cols-2 grid-rows-2 gap-3 lg:mt-6 lg:gap-5 xl:grid-cols-4 xl:grid-rows-1"
           >
             <button
-              className={`${keyboardsStatus ? "bg-purp hover:bg-purphover active:bg-purpclick" : "border-2 border-line hover:bg-greyhover active:bg-greyclick"}flex items-center justify-center whitespace-nowrap rounded-full px-6  py-2.5 text-xs tracking-wide text-lessgreyish  transition`}
+              className={`${featuredButtonStatus == "keyboards" ? "bg-purp " : "border-2 border-line hover:bg-greyhover active:bg-greyclick"}flex items-center justify-center whitespace-nowrap rounded-full px-6  py-2.5 text-xs tracking-wide text-lessgreyish  transition`}
               onClick={handleKeyboardsClick}
             >
               Keyboards
             </button>
             <button
-              className={`${CamerasStatus ? "bg-purp hover:bg-purphover active:bg-purpclick" : "border-2 border-line hover:bg-greyhover active:bg-greyclick"}flex items-center justify-center whitespace-nowrap rounded-full px-6  py-2.5 text-xs tracking-wide text-lessgreyish  transition`}
+              className={`${featuredButtonStatus == "cameras" ? "bg-purp " : "border-2 border-line hover:bg-greyhover active:bg-greyclick"}flex items-center justify-center whitespace-nowrap rounded-full px-6  py-2.5 text-xs tracking-wide text-lessgreyish  transition`}
               onClick={handleCamerasClick}
             >
               Cameras
             </button>
             <button
-              className={`${MousesStatus ? "bg-purp hover:bg-purphover active:bg-purpclick" : "border-2 border-line hover:bg-greyhover active:bg-greyclick"}flex items-center justify-center whitespace-nowrap rounded-full px-6  py-2.5 text-xs tracking-wide text-lessgreyish  transition`}
+              className={`${featuredButtonStatus == "mouses" ? "bg-purp " : "border-2 border-line hover:bg-greyhover active:bg-greyclick"}flex items-center justify-center whitespace-nowrap rounded-full px-6  py-2.5 text-xs tracking-wide text-lessgreyish  transition`}
               onClick={handleMousesClick}
             >
               Mouses
             </button>
             <button
-              className={`${HeadphonesStatus ? "bg-purp hover:bg-purphover active:bg-purpclick" : "border-2 border-line hover:bg-greyhover active:bg-greyclick"}flex items-center justify-center whitespace-nowrap rounded-full px-6  py-2.5 text-xs tracking-wide text-lessgreyish  transition`}
+              className={`${featuredButtonStatus == "headphones" ? "bg-purp " : "border-2 border-line hover:bg-greyhover active:bg-greyclick"}flex items-center justify-center whitespace-nowrap rounded-full px-6  py-2.5 text-xs tracking-wide text-lessgreyish  transition`}
               onClick={handleHeadphonesClick}
             >
               Headphones
             </button>
           </div>
           <div className=" mt-8 h-0.5 w-full bg-line"></div>
+          <div className="min grid h-72 max-w-full border-2 border-purple-700"></div>
         </div>
       </div>
       <div className=" mt-14 h-0.5 w-seventyp bg-line"></div>

@@ -18,27 +18,35 @@ export default function NavBar() {
 
   const handleShopClick = () => {
     handleChangeToShop();
+    setCurrShopCategory("");
   };
   const handleMyOrdersClick = () => {
     setCurrNav("my orders");
+    setCurrShopCategory("");
   };
   const handleSupportClick = () => {
     setCurrNav("support");
+    setCurrShopCategory("");
   };
 
   const handleComputersClick = () => {
+    setCurrNav("shop");
     setCurrShopCategory("computers");
   };
   const handleStreamingClick = () => {
+    setCurrNav("shop");
     setCurrShopCategory("streaming");
   };
   const handleComponentsClick = () => {
+    setCurrNav("shop");
     setCurrShopCategory("components");
   };
   const handleAudioClick = () => {
+    setCurrNav("shop");
     setCurrShopCategory("audio");
   };
   const handleAccesoriesClick = () => {
+    setCurrNav("shop");
     setCurrShopCategory("accesories");
   };
 
@@ -91,14 +99,18 @@ export default function NavBar() {
             </Link>
             <button
               onClick={handleMobileMenuClick}
-              className=" absolute right-2 top-2 flex size-6  items-center justify-center  "
+              className=" ams-center absolute right-2 top-2 flex size-6 justify-center  "
             >
               <img src={xicon} className="size-4"></img>
             </button>
           </div>
 
           <div className=" flex min-w-fit items-center justify-end  xs:w-3/12 xs:gap-1  sm:w-5/12 sm:gap-4 md:gap-9 ">
-            <Link className="flex min-w-fit items-center " to="/shop/">
+            <Link
+              onClick={handleShopClick}
+              className="flex min-w-fit items-center "
+              to="/shop/"
+            >
               <img
                 src={CyberSphereLogo}
                 className="h-10 w-10 xs:ml-2 xs:h-8 xs:w-8 sm:ml-0 md:h-10 md:w-10"
@@ -163,19 +175,34 @@ export default function NavBar() {
         </div>
         <div className="  -mb-0.5 h-0.5 bg-line"></div>
         <div className="flex h-2/5 items-center justify-center xs:gap-4 sm:gap-20">
-          <a className=" text-xs  font-normal text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+          <a
+            onClick={handleComputersClick}
+            className={`${currShopCategory === "computers" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} text-xs font-normal  hover:cursor-pointer `}
+          >
             Computers
           </a>
-          <a className=" text-xs  font-normal text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+          <a
+            onClick={handleStreamingClick}
+            className={`${currShopCategory === "streaming" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} text-xs font-normal hover:cursor-pointer `}
+          >
             Streaming
           </a>
-          <a className=" text-xs  font-normal text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+          <a
+            onClick={handleComponentsClick}
+            className={`${currShopCategory === "components" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} text-xs font-normal hover:cursor-pointer `}
+          >
             Components
           </a>
-          <a className=" text-xs  font-normal text-greyish transition hover:cursor-pointer hover:text-lessgreyish">
+          <a
+            onClick={handleAudioClick}
+            className={`${currShopCategory === "audio" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} text-xs font-normal hover:cursor-pointer `}
+          >
             Audio
           </a>
-          <a className=" text-xs  font-normal text-greyish transition hover:cursor-pointer hover:text-lessgreyish active:text-white">
+          <a
+            onClick={handleAccesoriesClick}
+            className={`${currNav === "accesories" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} text-xs font-normal hover:cursor-pointer `}
+          >
             Accesories
           </a>
         </div>

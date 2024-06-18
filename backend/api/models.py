@@ -28,6 +28,7 @@ class Product(TimestampModel):
   name = models.CharField(max_length=255)
   price = models.FloatField()
   stock = models.IntegerField(default=0)
+  created_by = models.TextField(max_length=100,null=True, blank=True,)
   description = models.TextField(null=True, blank=True,)
   discountprice = models.IntegerField(default=price, null=True, blank = True)
   coverphoto = models.ImageField(upload_to='product_images/')

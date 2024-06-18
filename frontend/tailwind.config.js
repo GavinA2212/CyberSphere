@@ -32,6 +32,7 @@ export default {
       },
       screens: {
         xs: "1px",
+        twol: "1380px",
       },
     },
   },

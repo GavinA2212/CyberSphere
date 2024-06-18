@@ -22,7 +22,7 @@ class ProductList(generics.ListCreateAPIView):
   serializer_class = ProductSerializer
   permission_classes = [AllowAny]
 
-class ProductDetail(generics.RetrieveDestroyAPIView):
+class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Product.objects.all()
   serializer_class = ProductSerializer
   permission_classes = [AllowAny]
@@ -32,7 +32,7 @@ class ProductCategoryList(generics.ListCreateAPIView):
   serializer_class = ProductCategorySerializer
   permission_classes = [AllowAny]
   
-class ProductCategoryDetail(generics.RetrieveDestroyAPIView):
+class ProductCategoryDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = ProductCategory.objects.all()
   serializer_class = ProductCategorySerializer
   permission_classes = [AllowAny]
@@ -42,7 +42,7 @@ class ProductFeaturedList(generics.ListCreateAPIView):
   serializer_class = ProductFeaturedSerializer
   permission_classes = [AllowAny]
 
-class ProductFeaturedDetail(generics.RetrieveDestroyAPIView):
+class ProductFeaturedDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = ProductFeatured.objects.all()
   serializer_class = ProductFeaturedSerializer
   permission_classes = [AllowAny]
