@@ -3,7 +3,7 @@ import Computershowcase from "/src/assets/computer.png";
 export default function MainShowcase() {
   return (
     <>
-      <div className="md:mt-navoffset mt-28 flex  min-h-sixtytwop w-seventyp  gap-0 border-blue-500 xs:flex-col md:flex-row md:gap-12">
+      <div className="mt-28 flex min-h-sixtytwop  w-seventyp gap-0  border-blue-500 xs:flex-col md:mt-navoffset md:flex-row md:gap-12">
         <div className="mt-4 h-fit min-h-sixtytwop w-full flex-col   border-red-500 md:mt-16 md:w-2/5">
           <h1 className="ml-1 inline-block whitespace-nowrap text-4xl font-normal tracking-wide text-gray-100 md:text-5xl ">
             Best study tool.

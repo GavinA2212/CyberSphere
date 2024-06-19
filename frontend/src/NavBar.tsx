@@ -20,13 +20,28 @@ export default function NavBar() {
     handleChangeToShop();
     setCurrShopCategory("");
   };
+  const handleMobileShopClick = () => {
+    handleChangeToShop();
+    setCurrShopCategory("");
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   const handleMyOrdersClick = () => {
     setCurrNav("my orders");
     setCurrShopCategory("");
   };
+  const handleMobileMyOrdersClick = () => {
+    setCurrNav("my orders");
+    setCurrShopCategory("");
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   const handleSupportClick = () => {
     setCurrNav("support");
     setCurrShopCategory("");
+  };
+  const handleMobileSupportClick = () => {
+    setCurrNav("support");
+    setCurrShopCategory("");
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const handleComputersClick = () => {
@@ -56,7 +71,7 @@ export default function NavBar() {
 
   return (
     <>
-      <div className="fixed top-0 h-28 w-full bg-darkbg font-DMSans text-2xl">
+      <div className="fixed top-0 z-50 h-28 w-full bg-darkbg font-DMSans text-2xl">
         <div className="justify-left flex h-3/5 items-center ">
           <div className="flex w-2/12 min-w-fit  items-center justify-center  sm:hidden">
             <button
@@ -76,30 +91,30 @@ export default function NavBar() {
           >
             <Link
               to={`/shop/`}
-              onClick={handleMobileMenuClick}
-              className="flex h-20 w-full items-center justify-center text-sm font-semibold text-lessgreyish transition hover:cursor-pointer hover:text-lessgreyish"
+              onClick={handleMobileShopClick}
+              className={`${currNav === "shop" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} flex h-20 w-full items-center justify-center text-sm font-semibold transition hover:cursor-pointer`}
             >
               Shop
             </Link>
             <div className=" h-0.5 w-full  bg-zinc-800"></div>
             <Link
               to={"/myorders/"}
-              onClick={handleMobileMenuClick}
-              className="flex h-20 w-full items-center justify-center text-sm font-semibold text-greyish transition hover:cursor-pointer hover:text-lessgreyish"
+              onClick={handleMobileMyOrdersClick}
+              className={`${currNav === "my orders" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} flex h-20 w-full items-center justify-center text-sm font-semibold transition hover:cursor-pointer`}
             >
               My Orders
             </Link>
             <div className="  h-0.5 w-full bg-zinc-800"></div>
             <Link
               to={`/support/`}
-              onClick={handleMobileMenuClick}
-              className="flex h-20 w-full items-center justify-center text-sm font-semibold text-greyish transition hover:cursor-pointer hover:text-lessgreyish"
+              onClick={handleMobileSupportClick}
+              className={`${currNav === "support" ? "text-lessgreyish" : "text-greyish hover:text-lessgreyish "} flex h-20 w-full items-center justify-center text-sm font-semibold transition hover:cursor-pointer`}
             >
               Support
             </Link>
             <button
               onClick={handleMobileMenuClick}
-              className=" ams-center absolute right-2 top-2 flex size-6 justify-center  "
+              className=" absolute right-2 top-2 flex size-6 justify-center  "
             >
               <img src={xicon} className="size-4"></img>
             </button>
