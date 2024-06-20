@@ -4,6 +4,7 @@ import star from "/src/assets/star.png";
 import { Context } from "../Context";
 import React from "react";
 import { FeaturedProduct } from "./FeaturedProduct";
+import PlaceHolderFeaturedProduct from "./PlaceholderFeaturedProduct";
 
 export default function FeaturedShowcase() {
   const [featuredButtonStatus, setFeaturedButtonStatus] = useState("keyboards");
@@ -62,14 +63,14 @@ export default function FeaturedShowcase() {
             className="border-bg-green-500 flex h-16 w-full   md:max-w-featuresize"
           >
             <div className="flex flex-col">
-              <p className="mt-3 text-xl05 font-semibold tracking-wide text-gray-100 ">
+              <p className="ml-1 mt-5 text-xl font-semibold tracking-wide text-gray-100 ">
                 {products[0] ? (
                   (products[0] as { name: string }).name
                 ) : (
                   <div className="mt-1.5 h-5 w-64 rounded-sm bg-line"></div>
                 )}
               </p>
-              <p className=" text-sm font-normal text-greyish">
+              <p className=" ml-1.5 mt-1 text-xs font-normal text-greyish">
                 {products[0] ? (
                   <>
                     Designed by{" "}
@@ -81,7 +82,7 @@ export default function FeaturedShowcase() {
               </p>
             </div>
             <div className="flex flex-1 flex-col items-end border border-purple-500">
-              <p className=" mt-3 text-sm font-normal text-greyish">
+              <p className=" mt-6 text-xs font-normal text-greyish">
                 {products[0] ? (
                   <>
                     {(products[0] as { stock: number }).stock}
@@ -91,25 +92,27 @@ export default function FeaturedShowcase() {
                   <div className="mt-1 h-4 w-14 rounded-sm bg-line"></div>
                 )}
               </p>
-              <div className="text-lightgreen border-lightgreen text-md border-3 mt-2 rounded-md px-4 font-extrabold">
+              <div
+                className={`${products[0] ? "border-lightgreen" : "border-transparent"} text-lightgreen  border-2.5 rounded-sm2 mt-2 px-3 py-0.5 text-xs font-extrabold`}
+              >
                 {products[0] ? (
                   <>
                     {"$"}
                     {(products[0] as { price: number }).price}
                   </>
                 ) : (
-                  <div className="mt-1 h-5 w-14 rounded-sm bg-line"></div>
+                  <div className="ml-12 h-4 w-12 rounded-sm bg-line"></div>
                 )}
               </div>
             </div>
           </div>
         </div>
         <div className="md:flex-2  mt-3 flex size-full flex-1 flex-col border border-red-500 md:mt-0">
-          <p className=" hidden text-xl05 font-semibold tracking-wide text-gray-100 md:inline-block">
+          <p className=" hidden text-xl font-semibold tracking-wide text-gray-100 md:inline-block">
             Featured
           </p>
           <p className=" hidden text-sm font-normal text-greyish md:inline-block">
-            What's best in each category
+            What's the best in each category
           </p>
           <div
             id="buttons"
@@ -141,8 +144,27 @@ export default function FeaturedShowcase() {
             </button>
           </div>
           <div className=" mt-6 h-0.5 w-full bg-line"></div>
-          <div className=" border-1  mt-8 grid min-h-80 max-w-full border-purple-700">
-            {products[0] && <FeaturedProduct product={products[0]} />}
+          <div className="  mt-13 border-1 grid min-h-80 max-w-3xl grid-cols-2 gap-3 border-purple-700">
+            {products[0] ? (
+              <FeaturedProduct product={products[0]} />
+            ) : (
+              <PlaceHolderFeaturedProduct />
+            )}
+            {products[0] ? (
+              <FeaturedProduct product={products[0]} />
+            ) : (
+              <PlaceHolderFeaturedProduct />
+            )}
+            {products[0] ? (
+              <FeaturedProduct product={products[0]} />
+            ) : (
+              <PlaceHolderFeaturedProduct />
+            )}
+            {products[0] ? (
+              <FeaturedProduct product={products[0]} />
+            ) : (
+              <PlaceHolderFeaturedProduct />
+            )}
           </div>
         </div>
       </div>

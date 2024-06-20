@@ -13,25 +13,33 @@ export default function App() {
   const APIURL = import.meta.env.VITE_API_URL;
 
   const [productArray, setProductArray] = useState([]);
+  const [featuredCategoryArray, setFeaturedCategoryArray] = useState([]);
 
+  const fetchProducts = async () => {
+    const response = await fetch(`${APIURL}/api/products/`);
+    const jsonData = await response.json();
+    console.log(jsonData);
+    setProductArray(jsonData);
+  };
+  const fetchFeaturedCategories = async () => {
+    const response = await fetch(`${APIURL}/api/productFeaturedCategories/`);
+    const jsonData = await response.json();
+    setFeaturedCategoryArray(jsonData);
+  };
   useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch(`${APIURL}/api/products/`);
-      const jsonData = await response.json();
-      console.log(jsonData);
-      setProductArray(jsonData);
-    };
     fetchProducts();
+    fetchFeaturedCategories();
     console.log(productArray[0]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const state: States = {
+  const globalStates: States = {
     products: productArray,
+    featuredCategories: featuredCategoryArray,
   };
 
   return (
-    <Context.Provider value={state}>
+    <Context.Provider value={globalStates}>
       <BrowserRouter>
         <Routes>
           <Route

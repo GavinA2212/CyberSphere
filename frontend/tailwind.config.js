@@ -7,6 +7,7 @@ export default {
       0: "0",
       1: "1px",
       2: "2px",
+      2.5: "2.5px",
       3: "3px",
       4: "4px",
       6: "6px",
@@ -25,7 +26,9 @@ export default {
         purp: "rgba(130,44,242, 1)",
         purphover: "rgba(130,44,242, .5)",
         purpclick: "rgba(130,44,242, .3)",
-        lightgreen: "rgb(120,224,184)",
+        //lightgreen: "rgb(120,224,184)",
+        //"lightgreen: "rgb(88,217,166)",
+        lightgreen: "rgb(90,218,169)",
       },
       fontFamily: {
         DMSans: ["DM Sans", "sans-serif"],
@@ -42,6 +45,9 @@ export default {
         featuresize: "26rem",
         smfeaturesize: "22rem",
         navoffset: "10.5rem",
+        13: "3.25rem",
+        34: "8.5rem",
+        33: "8.25rem",
       },
       screens: {
         xs: "1px",
@@ -50,6 +56,9 @@ export default {
       flex: {
         2: "2 2 0%",
         3: "3 3 0%",
+      },
+      borderRadius: {
+        sm2: ".25rem",
       },
     },
   },
