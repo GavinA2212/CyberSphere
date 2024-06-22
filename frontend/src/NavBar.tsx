@@ -71,7 +71,7 @@ export default function NavBar() {
 
   return (
     <>
-      <div className="fixed top-0 z-50 h-28 w-full bg-darkbg font-DMSans text-2xl">
+      <div className="fixed top-0 z-20 h-28 w-full bg-darkbg font-DMSans text-2xl">
         <div className="justify-left flex h-3/5 items-center ">
           <div className="flex w-2/12 min-w-fit  items-center justify-center  sm:hidden">
             <button

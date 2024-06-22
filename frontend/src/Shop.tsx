@@ -1,5 +1,5 @@
-import MainShowcase from "./HomePageComponents/MainShowcase.tsx";
-import FeaturedShowcase from "./HomePageComponents/FeaturedShowcase.tsx";
+import MainShowcase from "./Components/MainShowcase.tsx";
+import FeaturedShowcase from "./Components/FeaturedShowcase.tsx";
 
 export default function Shop() {
   return (

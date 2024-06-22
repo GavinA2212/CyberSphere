@@ -6,14 +6,17 @@ import Shop from "./Shop";
 import Support from "./Support";
 import { Context } from "./Context";
 import { States } from "./interfaces/Interfaces";
+import ProductDetail from "./ProductDetail";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
   const APIURL = import.meta.env.VITE_API_URL;
 
+  const [isLoading, setIsLoading] = useState(false);
   const [productArray, setProductArray] = useState([]);
   const [featuredCategoryArray, setFeaturedCategoryArray] = useState([]);
+  const [categoryArray, setCategoryArray] = useState([]);
 
   const fetchProducts = async () => {
     const response = await fetch(`${APIURL}/api/products/`);
@@ -26,16 +29,30 @@ export default function App() {
     const jsonData = await response.json();
     setFeaturedCategoryArray(jsonData);
   };
+  const fetchCategories = async () => {
+    const response = await fetch(`${APIURL}/api/productCategories/`);
+    const jsonData = await response.json();
+    setCategoryArray(jsonData);
+  };
+
   useEffect(() => {
-    fetchProducts();
-    fetchFeaturedCategories();
-    console.log(productArray[0]);
+    const fetchData = async () => {
+      setIsLoading(true);
+      await fetchProducts();
+      setIsLoading(false);
+      await fetchFeaturedCategories();
+      await fetchCategories();
+      console.log(productArray[0]);
+    };
+    fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const globalStates: States = {
     products: productArray,
     featuredCategories: featuredCategoryArray,
+    categories: categoryArray,
+    isLoading: isLoading,
   };
 
   return (
@@ -83,6 +100,24 @@ export default function App() {
             element={
               <>
                 <Login />
+              </>
+            }
+          />
+          <Route
+            path="/Shop/Products/:productId"
+            element={
+              <>
+                <NavBar />
+                <ProductDetail />
+              </>
+            }
+          />
+          <Route
+            path="/Products/:productId"
+            element={
+              <>
+                <NavBar />
+                <ProductDetail />
               </>
             }
           />

@@ -48,6 +48,7 @@ export default {
         13: "3.25rem",
         34: "8.5rem",
         33: "8.25rem",
+        500: "31.25rem",
       },
       screens: {
         xs: "1px",

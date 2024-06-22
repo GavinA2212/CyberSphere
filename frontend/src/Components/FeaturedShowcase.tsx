@@ -65,17 +65,14 @@ export default function FeaturedShowcase() {
             <div className="flex flex-col">
               <p className="ml-1 mt-5 text-xl font-semibold tracking-wide text-gray-100 ">
                 {products[0] ? (
-                  (products[0] as { name: string }).name
+                  products[0].name
                 ) : (
                   <div className="mt-1.5 h-5 w-64 rounded-sm bg-line"></div>
                 )}
               </p>
               <p className=" ml-1.5 mt-1 text-xs font-normal text-greyish">
                 {products[0] ? (
-                  <>
-                    Designed by{" "}
-                    {(products[0] as { created_by: string }).created_by}
-                  </>
+                  <>Designed by {products[0].created_by}</>
                 ) : (
                   <div className="mt-1 h-3 w-32 rounded-sm bg-line"></div>
                 )}
@@ -85,7 +82,7 @@ export default function FeaturedShowcase() {
               <p className=" mt-6 text-xs font-normal text-greyish">
                 {products[0] ? (
                   <>
-                    {(products[0] as { stock: number }).stock}
+                    {products[0].stock}
                     {" in stock"}
                   </>
                 ) : (
@@ -98,7 +95,7 @@ export default function FeaturedShowcase() {
                 {products[0] ? (
                   <>
                     {"$"}
-                    {(products[0] as { price: number }).price}
+                    {products[0].price}
                   </>
                 ) : (
                   <div className="ml-12 h-4 w-12 rounded-sm bg-line"></div>
@@ -144,7 +141,7 @@ export default function FeaturedShowcase() {
             </button>
           </div>
           <div className=" mt-6 h-0.5 w-full bg-line"></div>
-          <div className="  mt-13 border-1 grid min-h-80 max-w-3xl grid-cols-2 gap-3 border-purple-700">
+          <div className="  mt-13  grid min-h-80 max-w-3xl grid-cols-2 gap-3 border-purple-700">
             {products[0] ? (
               <FeaturedProduct product={products[0]} />
             ) : (

@@ -31,6 +31,9 @@ class Product(TimestampModel):
   created_by = models.TextField(max_length=100,null=True, blank=True,)
   description = models.TextField(null=True, blank=True,)
   discountprice = models.IntegerField(default=price, null=True, blank = True)
+  bestseller = models.BooleanField(null=True, blank=True, default=False)
+  rating = models.FloatField(default=4.7)
+  ratingcount = models.IntegerField(default=186)
   coverphoto = models.ImageField(upload_to='product_images/')
   featuredphoto = models.ImageField(upload_to='product_images/featured', null=True, blank=True)
   

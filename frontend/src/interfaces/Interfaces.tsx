@@ -1,20 +1,29 @@
 export interface Product {
-  category: number;
-  coverphoto: string;
-  created: string;
-  created_by: string | null;
-  description: string | null;
-  discountprice: number | null;
-  featured: number;
-  featuredphoto: string | null;
   id: number;
+  created: string;
+  updated: string;
   name: string;
   price: number;
   stock: number;
-  updated: string;
+  created_by: string;
+  description: string | null;
+  discountprice: number | null;
+  bestseller: boolean;
+  rating: number;
+  ratingcount: number;
+  coverphoto: string;
+  featuredphoto: string | null;
+  category: number;
+  featured: number;
 }
 
 export interface FeaturedCategory {
+  id: number;
+  created: string;
+  updated: string;
+  category_name: string;
+}
+export interface Category {
   id: number;
   created: string;
   updated: string;
@@ -24,4 +33,6 @@ export interface FeaturedCategory {
 export interface States {
   products: Product[];
   featuredCategories: FeaturedCategory[];
+  categories: Category[];
+  isLoading: boolean;
 }

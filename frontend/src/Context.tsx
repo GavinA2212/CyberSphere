@@ -1,3 +1,9 @@
 import React from "react";
+import { States } from "./interfaces/Interfaces";
 
-export const Context = React.createContext([]);
+const state: States = {
+  products: [],
+  featuredCategories: [],
+  categories: [],
+};
+export const Context = React.createContext(state);
